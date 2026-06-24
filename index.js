@@ -541,8 +541,8 @@ console.log("Part E20");
 
 function reverse(word) {
   let result = "";
-  for (i = 0; i <= word.length; i++) {
-    result = word[i] + result;
+  for (i = word.length - 1; i >= 0; i--) {
+    result += word[i];
   }
   return result;
 }
@@ -566,7 +566,7 @@ console.log("Part F21");
 // your code here
 
 function quadruple(n) {
-  let double = 1;
+  let double = 0;
   for (i = 1; i <= n; i++) {
     double = i * 4;
   }
@@ -585,6 +585,17 @@ console.log("Part F22");
 // Call your `square` from exercise 5 inside the loop.
 // your code here
 
+function sumOfSquares(n) {
+  let square = 0;
+  for (i = 1; i <= n; i++) {
+    square += i * i;
+  }
+  return square;
+}
+console.log(sumOfSquares(3));
+console.log(sumOfSquares(1));
+console.log(sumOfSquares(5));
+
 // console.log(sumOfSquares(3));
 // TEST 1:  sumOfSquares(3)  ->  14    (1 + 4 + 9)
 // TEST 2:  sumOfSquares(1)  ->  1
@@ -594,6 +605,13 @@ console.log("Part F23");
 // Write `bothEven(a, b)` that RETURNS true only if a AND b are both even.
 // Call your `isEven` from exercise 6.
 // your code here
+
+function bothEven(a, b) {
+  return a % 2 === 0 && b % 2 === 0;
+}
+console.log(bothEven(4, 8));
+console.log(bothEven(4, 7));
+console.log(bothEven(3, 9));
 
 // console.log(bothEven(4, 8));
 // TEST 1:  bothEven(4, 8)  ->  true
@@ -611,6 +629,17 @@ console.log("Part E1");
 // Hint: while n > 0 -> add (n % 10) to a total, then n = Math.floor(n / 10).
 // your code here
 
+function sumDigits(n) {
+  let count = "";
+  while (n > 0) {
+    n = n % 10 && Math.floor(n / 10);
+  }
+  return n;
+}
+console.log(sumDigits(4825));
+console.log(sumDigits(60));
+console.log(sumDigits(7));
+
 // console.log(sumDigits(4825));
 // EXAMPLE 1:  sumDigits(4825)  ->  19     (4 + 8 + 2 + 5)
 // EXAMPLE 2:  sumDigits(60)    ->  6      (6 + 0)
@@ -621,6 +650,17 @@ console.log("Part E2");
 // Hint: result = 1; loop `exp` times -> result = result * base.  (Do NOT use ** or Math.pow.)
 // Note: power(anything, 0) is 1.
 // your code here
+
+function power(base, exp) {
+  let result = 1;
+  for (i = 1; i <= exp; i++) {
+    result = result * base;
+  }
+  return result;
+}
+console.log(power(2, 5));
+console.log(power(5, 0));
+console.log(power(3, 3));
 
 // console.log(power(2, 5));
 // EXAMPLE 1:  power(2, 5)  ->  32    (2×2×2×2×2)
@@ -633,6 +673,8 @@ console.log("Part E3");
 // tracking BOTH a running max and a running min.
 // Hint: start hi = 0, lo = 9; for each digit d -> if (d > hi) hi = d; if (d < lo) lo = d.
 // your code here
+
+function digitSpread(n) {}
 
 // console.log(digitSpread(364));
 // EXAMPLE 1:  digitSpread(364)  ->  3    (max 6, min 3)
@@ -685,6 +727,8 @@ console.log("Part E8");
 // Write `isPerfectSquare(n)` -> true if a positive integer is a perfect square, else false.
 // Hint: loop i = 1 upward; if i*i === n -> true; if i*i > n -> false, stop.
 // your code here
+
+function isPerfectSquare(n) {}
 
 // console.log(isPerfectSquare(81));
 // EXAMPLE 1:  isPerfectSquare(81)   ->  true   (9×9)
