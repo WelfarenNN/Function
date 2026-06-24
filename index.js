@@ -428,8 +428,16 @@ console.log("Part L4");
 // Hint: result = ""; loop `times` -> result = result + word.  (Do NOT use word.repeat — build it.)
 // your code here
 
-
-
+function repeatStr(word, times) {
+  let result = "";
+  for (i = 1; i <= times; i++) {
+    result = result + word;
+  }
+  return result;
+}
+console.log(repeatStr("ab", 3));
+console.log(repeatStr("x", 5));
+console.log(repeatStr("hi", 1));
 // console.log(repeatStr("ab", 3));
 // TEST 1:  repeatStr("ab", 3)  ->  "ababab"
 // TEST 2:  repeatStr("x", 5)   ->  "xxxxx"
@@ -440,6 +448,19 @@ console.log("Part L5");
 // Hint: loop 1..n, if (i % k === 0) count++.
 // your code here
 
+function countMultiples(n, k) {
+  let count = 0;
+  for (i = 1; i <= n; i++) {
+    if (i % k === 0) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countMultiples(50, 3));
+console.log(countMultiples(10, 5));
+console.log(countMultiples(2, 3));
+
 // console.log(countMultiples(50, 3));
 // TEST 1:  countMultiples(50, 3)  ->  16
 // TEST 2:  countMultiples(10, 5)  ->  2
@@ -449,39 +470,85 @@ console.log("Part L5");
    PART E — FUNCTIONS THAT LOOP INSIDE
    (the loop lives INSIDE the function; the function returns one value)
    ============================================================ */
-
+console.log("Part E17");
 // ----- 17. Sum 1 to n -----
 // Write `sumTo(n)` that RETURNS 1 + 2 + ... + n. Use a loop inside.
 // your code here
+
+function sumTo(n) {
+  let sum = 0;
+  for (i = 1; i <= n; i++) {
+    sum += i;
+  }
+  return sum;
+}
+console.log(sumTo(100));
+console.log(sumTo(10));
+console.log(sumTo(1));
 
 // console.log(sumTo(100));
 // TEST 1:  sumTo(100)  ->  5050
 // TEST 2:  sumTo(10)   ->  55
 // TEST 3:  sumTo(1)    ->  1
-
+console.log("Part E18");
 // ----- 18. Factorial -----
 // Write `factorial(n)` that RETURNS 1 * 2 * ... * n (factorial(0) is 1).
 // your code here
+
+function factorial(n) {
+  let plus = 1;
+  for (i = 1; i <= n; i++) {
+    plus = plus * i;
+  }
+  return plus;
+}
+console.log(factorial(5));
+console.log(factorial(3));
+console.log(factorial(0));
 
 // console.log(factorial(5));
 // TEST 1:  factorial(5)  ->  120
 // TEST 2:  factorial(3)  ->  6
 // TEST 3:  factorial(0)  ->  1
-
+console.log("Part E19");
 // ----- 19. Count vowels -----
 // Write `countVowels(word)` that RETURNS how many vowels (a,e,i,o,u) are in a lowercase word.
 // Hint: loop the chars; "aeiou".includes(word[i]).
 // your code here
 
+function countVowels(word) {
+  let count = 0;
+  for (i = 0; i <= word.length; i++) {
+    if ("aeiou".includes(word[i])) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countVowels("javascript"));
+console.log(countVowels("aeiou"));
+console.log(countVowels("xyz"));
+
 // console.log(countVowels("javascript"));
 // TEST 1:  countVowels("javascript")  ->  3
 // TEST 2:  countVowels("aeiou")       ->  5
 // TEST 3:  countVowels("xyz")         ->  0
-
+console.log("Part E20");
 // ----- 20. Reverse a string -----
 // Write `reverse(word)` that RETURNS the word backwards.
 // Hint: result = ""; loop and do result = word[i] + result.
 // your code here
+
+function reverse(word) {
+  let result = "";
+  for (i = 0; i <= word.length; i++) {
+    result = word[i] + result;
+  }
+  return result;
+}
+console.log(reverse("code"));
+console.log(reverse("abc"));
+console.log(reverse("x"));
 
 // console.log(reverse("code"));
 // TEST 1:  reverse("code")  ->  "edoc"
@@ -492,17 +559,27 @@ console.log("Part L5");
    PART F — COMPOSE: CALL ONE FUNCTION FROM ANOTHER
    (a function can call a function you already wrote above)
    ============================================================ */
-
+console.log("Part F21");
 // ----- 21. Quadruple (reuse double) -----
 // Write `quadruple(n)` that RETURNS n times 4 BY CALLING `double` twice.
 // Hint: return double(double(n)).
 // your code here
 
+function quadruple(n) {
+  let double = 1;
+  for (i = 1; i <= n; i++) {
+    double = i * 4;
+  }
+  return double;
+}
+console.log(quadruple(3));
+console.log(quadruple(0));
+console.log(quadruple(5));
 // console.log(quadruple(3));
 // TEST 1:  quadruple(3)  ->  12
 // TEST 2:  quadruple(0)  ->  0
 // TEST 3:  quadruple(5)  ->  20
-
+console.log("Part F22");
 // ----- 22. Sum of squares (reuse square) -----
 // Write `sumOfSquares(n)` that RETURNS square(1) + square(2) + ... + square(n).
 // Call your `square` from exercise 5 inside the loop.
@@ -512,7 +589,7 @@ console.log("Part L5");
 // TEST 1:  sumOfSquares(3)  ->  14    (1 + 4 + 9)
 // TEST 2:  sumOfSquares(1)  ->  1
 // TEST 3:  sumOfSquares(5)  ->  55    (1 + 4 + 9 + 16 + 25)
-
+console.log("Part F23");
 // ----- 23. Both even? (reuse isEven) -----
 // Write `bothEven(a, b)` that RETURNS true only if a AND b are both even.
 // Call your `isEven` from exercise 6.
@@ -528,7 +605,7 @@ console.log("Part L5");
    Same tools: loops, if, %, Math.floor, strings — wrapped in a
    function that RETURNS the result instead of logging it.
    ============================================================ */
-
+console.log("Part E1");
 // ----- E1. Sum of Digits -----
 // Write `sumDigits(n)` that RETURNS the sum of the digits of a non-negative integer.
 // Hint: while n > 0 -> add (n % 10) to a total, then n = Math.floor(n / 10).
@@ -538,7 +615,7 @@ console.log("Part L5");
 // EXAMPLE 1:  sumDigits(4825)  ->  19     (4 + 8 + 2 + 5)
 // EXAMPLE 2:  sumDigits(60)    ->  6      (6 + 0)
 // EXAMPLE 3:  sumDigits(7)     ->  7
-
+console.log("Part E2");
 // ----- E2. Power  (two inputs — build it with a loop)  (LeetCode 50 lite) -----
 // Write `power(base, exp)` that RETURNS base raised to exp, for exp >= 0.
 // Hint: result = 1; loop `exp` times -> result = result * base.  (Do NOT use ** or Math.pow.)
@@ -549,7 +626,7 @@ console.log("Part L5");
 // EXAMPLE 1:  power(2, 5)  ->  32    (2×2×2×2×2)
 // EXAMPLE 2:  power(5, 0)  ->  1     (anything to the 0 is 1)
 // EXAMPLE 3:  power(3, 3)  ->  27
-
+console.log("Part E3");
 // ----- E3. Digit Spread (biggest digit minus smallest digit) -----
 // Write `digitSpread(n)` -> the largest digit MINUS the smallest digit of a
 // non-negative integer. Peel digits with % 10 and Math.floor(/10) while
@@ -561,7 +638,7 @@ console.log("Part L5");
 // EXAMPLE 1:  digitSpread(364)  ->  3    (max 6, min 3)
 // EXAMPLE 2:  digitSpread(70)   ->  7    (max 7, min 0)
 // EXAMPLE 3:  digitSpread(5)    ->  0    (one digit: max == min)
-
+console.log("Part E4");
 // ----- E4. Reverse a Number (positive only) -----
 // Write `reverseNumber(n)` that RETURNS a positive integer's digits reversed.
 // Hint: result = 0; while n > 0 -> result = result * 10 + (n % 10), n = Math.floor(n/10).
@@ -571,7 +648,7 @@ console.log("Part L5");
 // EXAMPLE 1:  reverseNumber(4071)  ->  1704
 // EXAMPLE 2:  reverseNumber(90)    ->  9     (09, leading zero drops)
 // EXAMPLE 3:  reverseNumber(6)     ->  6
-
+console.log("Part E5");
 // ----- E5. Power of Any Base  (two inputs — generalises Power of Two) -----
 // Write `isPowerOf(n, base)` -> true if positive n is base^0, base^1, base^2, ...
 // (so 1, base, base*base, ...), else false. base is >= 2.
@@ -582,7 +659,7 @@ console.log("Part L5");
 // EXAMPLE 1:  isPowerOf(27, 3)  ->  true    (3×3×3)
 // EXAMPLE 2:  isPowerOf(1, 5)   ->  true    (base^0 = 1)
 // EXAMPLE 3:  isPowerOf(12, 2)  ->  false   (12 = 2×2×3, the 3 ruins it)
-
+console.log("Part E6");
 // ----- E6. Decimal to Binary string -----
 // Write `toBinary(n)` -> the binary form of a positive integer, AS A STRING.
 // Same peeling as bit-counting, but instead of counting the 1s you PREPEND each bit.
@@ -593,7 +670,7 @@ console.log("Part L5");
 // EXAMPLE 1:  toBinary(11)  ->  "1011"
 // EXAMPLE 2:  toBinary(8)   ->  "1000"
 // EXAMPLE 3:  toBinary(1)   ->  "1"
-
+console.log("Part E7");
 // ----- E7. Sqrt(x) — integer part  (LeetCode 69) -----
 // Write `mySqrt(n)` -> the integer part of the square root of a non-negative integer.
 // Hint: loop i = 1 upward while i * i <= n; the answer is the last i that fit.
@@ -603,7 +680,7 @@ console.log("Part L5");
 // EXAMPLE 1:  mySqrt(26)  ->  5    (5²=25 ≤ 26, 6²=36 > 26)
 // EXAMPLE 2:  mySqrt(49)  ->  7
 // EXAMPLE 3:  mySqrt(2)   ->  1    (1²=1 ≤ 2, 2²=4 > 2)
-
+console.log("Part E8");
 // ----- E8. Valid Perfect Square  (LeetCode 367) -----
 // Write `isPerfectSquare(n)` -> true if a positive integer is a perfect square, else false.
 // Hint: loop i = 1 upward; if i*i === n -> true; if i*i > n -> false, stop.
@@ -613,7 +690,7 @@ console.log("Part L5");
 // EXAMPLE 1:  isPerfectSquare(81)   ->  true   (9×9)
 // EXAMPLE 2:  isPerfectSquare(50)   ->  false
 // EXAMPLE 3:  isPerfectSquare(100)  ->  true   (10×10)
-
+console.log("Part E9");
 // ----- E9. Count Divisors -----
 // Write `countDivisors(n)` -> how many positive whole numbers divide n evenly
 // (counting both 1 and n itself), for n >= 1.
@@ -624,7 +701,7 @@ console.log("Part L5");
 // EXAMPLE 1:  countDivisors(12)  ->  6    (1, 2, 3, 4, 6, 12)
 // EXAMPLE 2:  countDivisors(7)   ->  2    (1, 7 — a prime has exactly 2)
 // EXAMPLE 3:  countDivisors(1)   ->  1    (just 1)
-
+console.log("Part E10");
 // ----- E10. Collatz Steps  (the famous 3n+1 problem) -----
 // Write `collatzSteps(n)` -> how many steps a positive integer takes to reach 1.
 // Each step: even -> n / 2, odd -> 3 * n + 1. Count steps until n is exactly 1.
@@ -634,7 +711,7 @@ console.log("Part L5");
 // EXAMPLE 1:  collatzSteps(6)  ->  8    (6→3→10→5→16→8→4→2→1)
 // EXAMPLE 2:  collatzSteps(1)  ->  0    (already 1, no steps)
 // EXAMPLE 3:  collatzSteps(7)  ->  16
-
+console.log("Part E11");
 // ----- E11. Fizz Buzz (return one string)  (LeetCode 412 lite) -----
 // Write `fizzAt(i)` that RETURNS, for a single number i:
 //   "FizzBuzz" if divisible by 3 and 5, "Fizz" if by 3, "Buzz" if by 5, else String(i).
@@ -644,7 +721,7 @@ console.log("Part L5");
 // EXAMPLE 1:  fizzAt(15)  ->  "FizzBuzz"
 // EXAMPLE 2:  fizzAt(9)   ->  "Fizz"
 // EXAMPLE 3:  fizzAt(7)   ->  "7"
-
+console.log("Part E12");
 // ----- E12. Harshad Number  (REUSE your own sumDigits from E1) -----
 // A Harshad number is divisible by the SUM of its own digits.
 // Write `isHarshad(n)` and CALL sumDigits(n) from E1 — do NOT re-sum the digits here.
@@ -655,7 +732,7 @@ console.log("Part L5");
 // EXAMPLE 1:  isHarshad(18)  ->  true    (1+8=9, and 18 % 9 === 0)
 // EXAMPLE 2:  isHarshad(11)  ->  false   (1+1=2, and 11 % 2 !== 0)
 // EXAMPLE 3:  isHarshad(21)  ->  true    (2+1=3, and 21 % 3 === 0)
-
+console.log("Part E13");
 // ----- E13. Palindrome Number  (REUSE your own reverseNumber from E4)  (LeetCode 9) -----
 // Write `isPalindrome(n)` -> true if a non-negative integer reads the same both ways.
 // Do NOT re-derive the reverse here — CALL reverseNumber(n) from E4 and compare to n.
@@ -666,7 +743,7 @@ console.log("Part L5");
 // EXAMPLE 1:  isPalindrome(1331)  ->  true
 // EXAMPLE 2:  isPalindrome(1234)  ->  false
 // EXAMPLE 3:  isPalindrome(8)     ->  true
-
+console.log("Part E14");
 // ----- E14. Greatest Common Divisor  (two inputs — a function's home turf) -----
 // Write `gcd(a, b)` -> the biggest number that divides BOTH a and b evenly.
 // Hint (easy way): loop i from 1 up to the smaller of a and b; whenever i divides
@@ -677,7 +754,7 @@ console.log("Part L5");
 // EXAMPLE 1:  gcd(12, 8)   ->  4    (1,2,4 divide both; 4 is biggest)
 // EXAMPLE 2:  gcd(7, 5)    ->  1    (only 1 divides both)
 // EXAMPLE 3:  gcd(9, 9)    ->  9
-
+console.log("Part E15");
 // ----- E15. Digital Root  (REUSE your own sumDigits from E1) -----
 // Keep summing the digits until only ONE digit is left, then RETURN it.
 // Write `digitalRoot(n)` and CALL `sumDigits(n)` (from E1) inside a loop.
@@ -692,7 +769,7 @@ console.log("Part L5");
 /* ============================================================
    CHALLENGE (optional) — recursion preview
    ============================================================ */
-
+console.log("Last Countdown");
 // ----- Countdown string -----
 // Write `countdown(n)` that RETURNS "n n-1 ... 1 Go!" as one string with single spaces.
 // You may use a loop OR call countdown(n-1) inside itself (recursion). Either is fine.
