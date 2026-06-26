@@ -674,7 +674,21 @@ console.log("Part E3");
 // Hint: start hi = 0, lo = 9; for each digit d -> if (d > hi) hi = d; if (d < lo) lo = d.
 // your code here
 
-function digitSpread(n) {}
+function digitSpread(n) {
+  if (n === 0) return 0;
+  let hi = 0;
+  let lo = 9;
+  while (n > 0) {
+    let d = n % 10;
+    if (d > hi) hi = d;
+    if (d < lo) lo = d;
+    n = Math.floor(n / 10);
+  }
+  return hi - lo;
+}
+console.log(digitSpread(364));
+console.log(digitSpread(70));
+console.log(digitSpread(5));
 
 // console.log(digitSpread(364));
 // EXAMPLE 1:  digitSpread(364)  ->  3    (max 6, min 3)
@@ -685,8 +699,6 @@ console.log("Part E4");
 // Write `reverseNumber(n)` that RETURNS a positive integer's digits reversed.
 // Hint: result = 0; while n > 0 -> result = result * 10 + (n % 10), n = Math.floor(n/10).
 // your code here
-
-
 
 // console.log(reverseNumber(4071));
 // EXAMPLE 1:  reverseNumber(4071)  ->  1704
